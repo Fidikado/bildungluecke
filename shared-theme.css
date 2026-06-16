@@ -1,0 +1,611 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Unified blog theme */
+:root {
+  --blog-bg: #090b10;
+  --blog-bg-soft: rgba(21, 23, 31, 0.84);
+  --blog-surface: rgba(18, 21, 29, 0.8);
+  --blog-surface-strong: rgba(18, 21, 29, 0.94);
+  --blog-border: rgba(148, 163, 184, 0.18);
+  --blog-text: #eef3f8;
+  --blog-text-soft: #bdc7d4;
+  --blog-heading: #f8fafc;
+  --blog-accent: #67e8f9;
+  --blog-accent-2: #d8b4fe;
+  --blog-accent-soft: rgba(103, 232, 249, 0.14);
+  --blog-gold: #f3c77d;
+  --blog-rose: #f0a1a8;
+  --blog-shadow: 0 24px 80px rgba(2, 6, 23, 0.42);
+  --blog-shadow-soft: 0 16px 40px rgba(2, 6, 23, 0.24);
+  --blog-radius: 24px;
+  --blog-radius-sm: 16px;
+  --blog-content-width: 76rem;
+  --blog-reading-width: 50rem;
+  --blog-measure: 68ch;
+}
+
+html { background: var(--blog-bg); }
+
+body.lusi-unified-blog {
+  background:
+    radial-gradient(circle at top left, rgba(103, 232, 249, 0.13), transparent 30%),
+    radial-gradient(circle at right top, rgba(243, 199, 125, 0.1), transparent 30%),
+    linear-gradient(180deg, #090b10 0%, #10131a 48%, #12151d 100%) !important;
+  color: var(--blog-text) !important;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+}
+
+body.lusi-unified-blog::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(circle at center, black 38%, transparent 95%);
+  opacity: 0.28;
+  z-index: 0;
+}
+
+body.lusi-unified-blog #root {
+  position: relative;
+  z-index: 1;
+}
+
+body.lusi-unified-blog :where(h1, h2, h3, h4, h5, h6) {
+  color: var(--blog-heading) !important;
+  font-family: "Playfair Display", Georgia, serif !important;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+body.lusi-unified-blog :where(p, li, span, small) {
+  color: inherit;
+}
+
+body.lusi-unified-blog :where(p, li) {
+  color: var(--blog-text-soft) !important;
+  line-height: 1.78 !important;
+  max-width: var(--blog-measure);
+}
+
+body.lusi-unified-blog :where(a) {
+  color: var(--blog-accent) !important;
+  text-underline-offset: 0.22em;
+}
+
+body.lusi-unified-blog :where(a:hover) {
+  color: #7dd3fc !important;
+}
+
+body.lusi-unified-blog :where(button, .button, [role="button"]) {
+  border-radius: 999px !important;
+  border: 1px solid rgba(125, 211, 252, 0.24) !important;
+  box-shadow: none !important;
+}
+
+body.lusi-unified-blog :where(hr) {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.35), transparent);
+  margin: 28px 0;
+}
+
+body.lusi-unified-blog :where(section, article, main > div, .card, .panel) {
+  border-radius: var(--blog-radius) !important;
+}
+
+body.lusi-unified-blog :where([class*="backdrop-blur"], [class*="bg-zinc"], [class*="bg-slate"], [class*="bg-neutral"], [class*="bg-black/"], [class*="border-white/"]) {
+  border-color: var(--blog-border) !important;
+}
+
+body.lusi-unified-blog :where([class*="max-w-7xl"], [class*="max-w-6xl"], [class*="max-w-5xl"]) {
+  max-width: var(--blog-content-width) !important;
+}
+
+body.lusi-unified-blog :where([class*="prose"], article, [class*="max-w-3xl"], [class*="max-w-2xl"]) {
+  max-width: var(--blog-reading-width) !important;
+}
+
+body.lusi-unified-blog .lusi-theme-shell {
+  width: min(100% - 32px, 1120px);
+  margin: 28px auto 40px;
+  padding: 24px;
+  border: 1px solid var(--blog-border);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(18, 21, 29, 0.78), rgba(18, 21, 29, 0.54));
+  backdrop-filter: blur(18px);
+  box-shadow: var(--blog-shadow);
+}
+
+body.lusi-unified-blog .lusi-theme-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 0 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--blog-border);
+}
+
+body.lusi-unified-blog .lusi-theme-topbar-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+body.lusi-unified-blog .lusi-theme-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--blog-heading);
+  text-decoration: none;
+}
+
+body.lusi-unified-blog .lusi-theme-brand-badge {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 199, 125, 0.44);
+  background:
+    linear-gradient(135deg, rgba(243, 199, 125, 0.2), rgba(103, 232, 249, 0.12)),
+    rgba(9, 11, 16, 0.7);
+  color: var(--blog-heading);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.28), inset 0 0 0 6px rgba(255, 255, 255, 0.025);
+}
+
+body.lusi-unified-blog .lusi-theme-brand-copy strong {
+  display: block;
+  font-size: 0.98rem;
+}
+
+body.lusi-unified-blog .lusi-theme-brand-copy span {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--blog-text-soft);
+}
+
+body.lusi-unified-blog .lusi-theme-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  background: rgba(56, 189, 248, 0.08);
+  color: #d8f3ff;
+  font-size: 0.84rem;
+  white-space: nowrap;
+}
+
+body.lusi-unified-blog .lusi-theme-kicker::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--blog-gold), var(--blog-accent));
+  box-shadow: 0 0 0 6px rgba(243, 199, 125, 0.08);
+}
+
+body.lusi-unified-blog .lusi-theme-footer {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--blog-border);
+  color: var(--blog-text-soft);
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+body.lusi-unified-blog .lusi-theme-footer a {
+  color: var(--blog-text-soft) !important;
+  text-decoration: none;
+}
+
+body.lusi-unified-blog .lusi-theme-footer a:hover {
+  color: var(--blog-heading) !important;
+}
+
+body.lusi-unified-blog .lusi-theme-gradient,
+body.lusi-unified-blog :where([class*="gradient-text"], [class*="bg-gradient-to"], [class*="from-cyan"], [class*="from-sky"], [class*="from-violet"]) {
+  background-image: linear-gradient(135deg, var(--blog-gold), var(--blog-accent)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+body.lusi-unified-blog .lusi-theme-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+body.lusi-unified-blog .lusi-theme-nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--blog-text-soft) !important;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: 160ms ease;
+}
+
+body.lusi-unified-blog .lusi-theme-nav-link:hover,
+body.lusi-unified-blog .lusi-theme-nav-link.is-active {
+  color: var(--blog-heading) !important;
+  border-color: rgba(125, 211, 252, 0.28);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+body.lusi-unified-blog .lusi-theme-eyebrow {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: #bfe8ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+body.lusi-unified-blog .lusi-home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.95fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+body.lusi-unified-blog .lusi-home-hero-copy,
+body.lusi-unified-blog .lusi-home-hero-panel,
+body.lusi-unified-blog .lusi-article-card,
+body.lusi-unified-blog .lusi-article-meta {
+  border: 1px solid var(--blog-border);
+  background: linear-gradient(180deg, rgba(18, 21, 29, 0.76), rgba(18, 21, 29, 0.5));
+  box-shadow: var(--blog-shadow);
+}
+
+body.lusi-unified-blog .lusi-home-hero-copy,
+body.lusi-unified-blog .lusi-home-hero-panel {
+  padding: 24px;
+  border-radius: 28px;
+}
+
+body.lusi-unified-blog .lusi-home-hero-copy h1 {
+  margin: 0 0 16px;
+  font-size: 3.35rem;
+  line-height: 1.05;
+}
+
+body.lusi-unified-blog .lusi-home-hero-copy p,
+body.lusi-unified-blog .lusi-home-hero-panel p,
+body.lusi-unified-blog .lusi-article-meta p {
+  margin: 0;
+}
+
+body.lusi-unified-blog .lusi-home-hero-panel {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  border: 1px solid rgba(243, 199, 125, 0.2);
+  background:
+    linear-gradient(155deg, rgba(243, 199, 125, 0.12), rgba(103, 232, 249, 0.06)),
+    rgba(18, 21, 29, 0.42);
+}
+
+body.lusi-unified-blog .lusi-home-hero-panel strong,
+body.lusi-unified-blog .lusi-article-card strong {
+  color: var(--blog-heading);
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+body.lusi-unified-blog .lusi-article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+body.lusi-unified-blog .lusi-article-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border-radius: 24px;
+  text-decoration: none;
+  min-height: 220px;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+body.lusi-unified-blog .lusi-article-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(125, 211, 252, 0.28);
+  background: linear-gradient(180deg, rgba(20, 32, 57, 0.85), rgba(15, 23, 42, 0.58));
+}
+
+body.lusi-unified-blog .lusi-content-root {
+  position: relative;
+}
+
+body.lusi-unified-blog .lusi-hero-polish {
+  position: relative;
+  overflow: hidden;
+}
+
+body.lusi-unified-blog .lusi-hero-polish::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -1px 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(246, 193, 119, 0.45), transparent);
+}
+
+body.lusi-unified-blog .lusi-section-heading {
+  position: relative;
+  margin-top: 2.8rem;
+  padding-top: 1rem;
+  max-width: var(--blog-measure);
+}
+
+body.lusi-unified-blog .lusi-section-heading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blog-gold), transparent);
+}
+
+body.lusi-unified-blog .lusi-longform-copy {
+  font-size: 1.03rem;
+  text-wrap: pretty;
+  hanging-punctuation: first allow-end;
+}
+
+body.lusi-unified-blog .lusi-pullquote {
+  margin: 32px 0;
+  padding: 24px 24px 24px 28px;
+  border-left: 3px solid var(--blog-gold);
+  border-radius: 0 var(--blog-radius-sm) var(--blog-radius-sm) 0;
+  background: linear-gradient(180deg, rgba(246, 193, 119, 0.08), rgba(15, 23, 42, 0.4));
+  color: var(--blog-heading) !important;
+  box-shadow: var(--blog-shadow-soft);
+  max-width: var(--blog-measure);
+}
+
+body.lusi-unified-blog .lusi-pullquote :where(p, span) {
+  color: var(--blog-heading) !important;
+  font-size: 1.1rem;
+}
+
+body.lusi-unified-blog .lusi-cta-link,
+body.lusi-unified-blog a.lusi-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  margin-top: 6px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--blog-heading) !important;
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(167, 139, 250, 0.12));
+  box-shadow: var(--blog-shadow-soft);
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+body.lusi-unified-blog .lusi-cta-link::after {
+  content: "→";
+  opacity: 0.85;
+}
+
+body.lusi-unified-blog .lusi-cta-link:hover {
+  transform: translateY(-1px);
+  border-color: rgba(125, 211, 252, 0.38);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(167, 139, 250, 0.18));
+}
+
+body.lusi-unified-blog .lusi-article-card-label,
+body.lusi-unified-blog .lusi-article-card-cta {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+body.lusi-unified-blog .lusi-article-card-label {
+  color: #bfe8ff;
+}
+
+body.lusi-unified-blog .lusi-article-card p {
+  margin: 0;
+}
+
+body.lusi-unified-blog .lusi-article-card-cta {
+  color: var(--blog-heading);
+  margin-top: auto;
+}
+
+body.lusi-unified-blog .lusi-article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  border-radius: 22px;
+}
+
+body.lusi-unified-blog .lusi-article-backlink {
+  text-decoration: none;
+  color: var(--blog-heading) !important;
+  white-space: nowrap;
+}
+
+body.lusi-unified-blog .lusi-article-backlink::after {
+  content: none;
+}
+
+body.lusi-unified-blog .lusi-premium-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 0 0 24px;
+  border: 1px solid var(--blog-border);
+  border-radius: 24px;
+  background: var(--blog-border);
+  box-shadow: var(--blog-shadow-soft);
+}
+
+body.lusi-unified-blog .lusi-premium-strip-item {
+  padding: 16px 18px;
+  background: rgba(18, 21, 29, 0.72);
+}
+
+body.lusi-unified-blog .lusi-premium-strip-item span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--blog-gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+body.lusi-unified-blog .lusi-premium-strip-item strong {
+  display: block;
+  color: var(--blog-heading);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+body.lusi-unified-blog .lusi-article-meta-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+body.lusi-unified-blog .lusi-article-meta-note span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--blog-text-soft);
+  font-size: 0.78rem;
+}
+
+body.lusi-unified-blog .lusi-reading-frame {
+  max-width: var(--blog-reading-width) !important;
+}
+
+body.lusi-unified-blog .lusi-home-featured {
+  position: relative;
+  grid-column: span 2;
+  min-height: 250px;
+  padding: 26px;
+  border-color: rgba(243, 199, 125, 0.32);
+  background:
+    linear-gradient(135deg, rgba(243, 199, 125, 0.13), rgba(103, 232, 249, 0.08)),
+    rgba(18, 21, 29, 0.74);
+}
+
+body.lusi-unified-blog .lusi-home-featured strong {
+  font-size: 1.7rem;
+}
+
+body.lusi-unified-blog :where(img, video) {
+  border-radius: calc(var(--blog-radius) - 6px) !important;
+}
+
+@media (min-width: 901px) {
+  body.lusi-unified-blog .lusi-home-hero-copy h1 {
+    font-size: 3.35rem;
+  }
+}
+
+@media (max-width: 900px) {
+  body.lusi-unified-blog .lusi-theme-shell {
+    width: min(100% - 20px, 1120px);
+    margin: 14px auto 22px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  body.lusi-unified-blog .lusi-theme-topbar,
+  body.lusi-unified-blog .lusi-article-meta,
+  body.lusi-unified-blog .lusi-home-hero {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  body.lusi-unified-blog .lusi-article-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lusi-unified-blog .lusi-home-hero-copy,
+  body.lusi-unified-blog .lusi-home-hero-panel {
+    padding: 20px;
+  }
+
+  body.lusi-unified-blog .lusi-home-hero-copy h1 {
+    font-size: 2.45rem;
+    line-height: 1.08;
+  }
+
+  body.lusi-unified-blog .lusi-premium-strip {
+    grid-template-columns: 1fr;
+  }
+
+  body.lusi-unified-blog .lusi-home-featured {
+    grid-column: auto;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  body.lusi-unified-blog .lusi-theme-brand {
+    align-items: flex-start;
+  }
+
+  body.lusi-unified-blog .lusi-theme-brand-badge {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+  }
+
+  body.lusi-unified-blog .lusi-theme-kicker {
+    white-space: normal;
+  }
+
+  body.lusi-unified-blog .lusi-home-hero-copy h1 {
+    font-size: 2.05rem;
+  }
+
+  body.lusi-unified-blog .lusi-article-meta {
+    padding: 16px;
+  }
+}

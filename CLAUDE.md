@@ -6,14 +6,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the file mirror for the deployed site **blog.bildungsluecke.xyz** ("Bildungslücke" — German digital-literacy/political-education blog). There is no build system, no `package.json`, no test suite — it's plain static HTML served as-is. There are no commands to build, lint, or test; changes are deployed by uploading the relevant files to the web server.
 
-## Important: two different kinds of `index.html` in this repo
+## Everything is hand-authored static HTML
 
-- `index.html` (site root) and `site1/`–`site5/` are **raw downloaded snapshots of the live, compiled React/Vite bundle**. They are minified, contain an entire inlined JS app, and are effectively unreadable/unmaintainable as source — they exist here only as a backup of what's currently live. **Do not hand-edit these to add content.** The original source project for that React app was never committed anywhere and is considered lost; these files are the only record of it.
-- `site6/index.html` is **hand-authored static HTML**, written from scratch to visually match the live site using the shared theme CSS classes. This is the actual pattern to follow when adding new topic pages.
+`index.html` (site root) and `site1/`–`site6/` were originally raw downloaded snapshots of a compiled React/Vite bundle (minified, unreadable, unmaintainable — the original React source project was never committed anywhere and is considered lost). They have since been **fully rewritten as plain static HTML**, using the shared theme CSS classes, with the article text recovered verbatim from the old bundles. There is no React, no build step, and no minified JS left anywhere in the repo. Every page now follows the same hand-authored pattern.
 
 ## Adding a new topic page
 
-Follow the `site6/index.html` pattern, not the minified bundles:
+Follow the existing `siteN/index.html` pattern:
 
 1. Create `siteN/index.html` (next free number; `site1`–`site6` are taken).
 2. Use relative paths `../shared-theme.css` and `../shared-theme.js?v=stable-20260501-3` (these resolve from `/siteN/` to the root-level theme files).
@@ -30,7 +29,8 @@ Follow the `site6/index.html` pattern, not the minified bundles:
    - `lusi-theme-footer` — page footer
 5. Before using any new class name, verify it's actually defined in `shared-theme.css` — don't assume a class exists just because it sounds plausible.
 6. Headings (`h1`–`h6`) automatically render in Playfair Display via the shared theme; body text automatically uses Inter. Don't override `font-family` manually.
-7. New pages are **not** automatically linked from the homepage — the homepage card grid lives inside the minified bundle (`index.html`) and isn't safely editable. If a new page should be discoverable from the homepage, that requires separately reconstructing/editing the bundle, which is out of scope for a normal content addition; flag this limitation rather than attempting it.
+7. Add a matching `lusi-theme-nav-link` entry (linking to the new page) to the nav block on **every** existing page — `index.html` and all `siteN/index.html` files all repeat the same nav markup independently (there's no shared template/include), so a new page must be added to each one by hand.
+8. Add a corresponding `lusi-article-card` to the `lusi-article-grid` on the homepage (`index.html`) so the new page is discoverable from the start page.
 
 ## Design system reference (`shared-theme.css`)
 

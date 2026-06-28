@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-This is the file mirror for the deployed site **blog.bildungsluecke.xyz** ("Bildungslücke" — German digital-literacy/political-education blog). There is no build system, no `package.json`, no test suite — it's plain static HTML served as-is. There are no commands to build, lint, or test; changes are deployed by uploading the relevant files to the web server.
+This is the file mirror for the deployed site **blog.bildungsluecke.xyz** ("Bildungslücke" — German digital-literacy/political-education blog). There is no build system, no `package.json`, no test suite — it's plain static HTML served as-is. There are no commands to build, lint, or test; changes are deployed by pushing to `main` on GitHub (deployment is wired to the GitHub repo — there is no manual FTP upload step).
 
 ## Everything is hand-authored static HTML
 

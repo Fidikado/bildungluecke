@@ -1,0 +1,7 @@
+# FTP-/Deploy-Zugangsdaten – niemals committen/pushen!
+deploy.config
+.deploy.config
+*.local
+
+# Lokale Tooling-/Editor-Konfiguration
+.claude/

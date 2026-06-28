@@ -15,7 +15,7 @@ This is the file mirror for the deployed site **blog.bildungsluecke.xyz** ("Bild
 Follow the existing `siteN/index.html` pattern:
 
 1. Create `siteN/index.html` (next free number; `site1`–`site8` are taken).
-2. Use relative paths `../shared-theme.css` and `../shared-theme.js?v=stable-20260628-2` (these resolve from `/siteN/` to the root-level theme files). Bump the `?v=` query whenever `shared-theme.js` changes so browsers refetch it (the static server ignores the query string and always serves the current file).
+2. Use relative paths `../shared-theme.css?v=stable-20260628-2` and `../shared-theme.js?v=stable-20260628-2` (these resolve from `/siteN/` to the root-level theme files). **Both** the CSS and the JS link carry a `?v=` cache-buster — bump it on **every** page (`index.html` + all `siteN/`) whenever you change `shared-theme.css` *or* `shared-theme.js`, otherwise returning visitors get a stale theme file (new HTML/JS + old cached CSS renders the widgets unstyled/broken).
 3. Set `<body class="lusi-unified-blog bg-[#060608] antialiased">` directly — `shared-theme.js` normally adds the `lusi-unified-blog` class at runtime, but for a static page set it inline so styling is correct even before the script runs.
 4. Reuse the existing structural classes rather than inventing new ones — all of these are defined in `shared-theme.css` and nothing else:
    - `lusi-theme-shell` — outer rounded container for the whole page

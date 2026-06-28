@@ -271,6 +271,44 @@
     update();
   }
 
+  // ---------------------------------------------------------------------------
+  // Share button — copy link + native Web Share when available.
+  // Uses [data-share] buttons. Progressive enhancement.
+  // ---------------------------------------------------------------------------
+  function initShare() {
+    var buttons = document.querySelectorAll('[data-share]');
+    if (!buttons.length) return;
+
+    Array.prototype.forEach.call(buttons, function (btn) {
+      btn.addEventListener('click', function () {
+        var url = window.location.href.split('#')[0];
+        var title = document.title || 'Bildungslücke';
+
+        // Best experience on mobile / supporting browsers
+        if (navigator.share) {
+          navigator.share({ title: title, url: url }).catch(function () {});
+          return;
+        }
+
+        // Clipboard fallback
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(function () {
+            var originalText = btn.textContent;
+            btn.textContent = 'Link kopiert!';
+            setTimeout(function () {
+              btn.textContent = originalText;
+            }, 1600);
+          }).catch(function () {
+            // Very old fallback
+            prompt('Link zum Teilen:', url);
+          });
+        } else {
+          prompt('Link zum Teilen:', url);
+        }
+      });
+    });
+  }
+
   ready(function () {
     var article = document.querySelector('article.lusi-longform-copy');
     if (article) {
@@ -281,5 +319,6 @@
     initCounters();
     initTabs();
     initQuiz();
+    initShare();
   });
 })();

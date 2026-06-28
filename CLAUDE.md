@@ -15,7 +15,7 @@ This is the file mirror for the deployed site **blog.bildungsluecke.xyz** ("Bild
 Follow the existing `siteN/index.html` pattern:
 
 1. Create `siteN/index.html` (next free number; `site1`–`site8` are taken).
-2. Use relative paths `../shared-theme.css?v=stable-20260628-2` and `../shared-theme.js?v=stable-20260628-2` (these resolve from `/siteN/` to the root-level theme files). **Both** the CSS and the JS link carry a `?v=` cache-buster — bump it on **every** page (`index.html` + all `siteN/`) whenever you change `shared-theme.css` *or* `shared-theme.js`, otherwise returning visitors get a stale theme file (new HTML/JS + old cached CSS renders the widgets unstyled/broken).
+2. Use relative paths `../shared-theme.css?v=stable-20260628-9` and `../shared-theme.js?v=stable-20260628-9` (these resolve from `/siteN/` to the root-level theme files). **Both** the CSS and the JS link carry a `?v=` cache-buster — bump it on **every** page (`index.html` + all `siteN/`) whenever you change `shared-theme.css` *or* `shared-theme.js`, otherwise returning visitors get a stale theme file (new HTML/JS + old cached CSS renders the widgets unstyled/broken).
 3. Set `<body class="lusi-unified-blog bg-[#060608] antialiased">` directly — `shared-theme.js` normally adds the `lusi-unified-blog` class at runtime, but for a static page set it inline so styling is correct even before the script runs.
 4. Reuse the existing structural classes rather than inventing new ones — all of these are defined in `shared-theme.css` and nothing else:
    - `lusi-theme-shell` — outer rounded container for the whole page
@@ -26,6 +26,7 @@ Follow the existing `siteN/index.html` pattern:
    - `lusi-pullquote` — highlighted quote block
    - `lusi-home-hero-panel` — boxed callout (used here for the closing CTA box)
    - `lusi-cta-link` — pill-style call-to-action link (auto-appends a `→`)
+   - `lusi-share`, `lusi-share-btn` (with `data-share`) — "Teilen" / share button
    - `lusi-theme-footer` — page footer
 5. Before using any new class name, verify it's actually defined in `shared-theme.css` — don't assume a class exists just because it sounds plausible.
 6. Headings (`h1`–`h6`) automatically render in Playfair Display via the shared theme; body text automatically uses Inter. Don't override `font-family` manually.
@@ -49,6 +50,31 @@ Article pages are progressively enhanced by `shared-theme.js` — vanilla JS, no
 - **Quiz** — `<section class="lusi-quiz" data-quiz>` containing `lusi-quiz-item` blocks, each with `data-answer="N"` (index of the correct option), a `lusi-quiz-q`, several `<button class="lusi-quiz-opt">`, and a `<p class="lusi-quiz-feedback" hidden>`. JS marks right/wrong, reveals feedback, and locks the item. Keep questions answerable from the article text; **skip the quiz on tonally sensitive topics** (e.g. `site4` on filmed violence/victims).
 
 Preserve article body text verbatim when converting a list into tabs/accordions — only restructure, don't rewrite the substance.
+
+## Share button ("Teilen")
+
+All live pages include a share button so visitors can easily copy or share the current page.
+
+**Markup (use exactly this):**
+
+```html
+<div class="lusi-share">
+  <button type="button" class="lusi-share-btn" data-share>Teilen</button>
+</div>
+```
+
+**Consistent prominent placement (near the main title):**
+
+- **Homepage** (`index.html`): Place inside `.lusi-home-hero-copy`, right after the `.lusi-theme-eyebrow` and **before** the main `<h1>`.
+- **Article pages** (`siteN/index.html`): Place **inside** `.lusi-article-meta`, directly after the `<h1>` (within the left title `<div>`), before the backlink.
+
+The button gets the green accent styling when placed in the title area. `shared-theme.js` (`initShare`) wires up every `[data-share]`:
+
+- Tries `navigator.share()` first (native share sheet — excellent on mobile).
+- Falls back to clipboard copy (button briefly shows "Link kopiert!").
+- Last resort: `prompt()` with the URL.
+
+Title-area share elements use uniform spacing (`margin-top: 6px; margin-bottom: 6px`) and matching button sizing. Keep this consistent when adding or adjusting the button.
 
 ## Design system reference (`shared-theme.css`)
 

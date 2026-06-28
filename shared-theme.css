@@ -447,7 +447,7 @@ body.lusi-unified-blog .lusi-article-card-cta {
 body.lusi-unified-blog .lusi-article-meta {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 20px;
   padding: 18px 20px;
   margin-bottom: 20px;
@@ -515,6 +515,96 @@ body.lusi-unified-blog .lusi-article-meta-note span {
   background: rgba(255, 255, 255, 0.035);
   color: var(--blog-text-soft);
   font-size: 0.78rem;
+}
+
+/* Share / Teilen UI — used on article pages and homepage */
+body.lusi-unified-blog .lusi-share {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* Make share buttons more visible overall */
+body.lusi-unified-blog .lusi-share-btn {
+  appearance: none;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--blog-text);
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+body.lusi-unified-blog .lusi-share-btn:hover {
+  background: rgba(103, 232, 249, 0.1);
+  border-color: rgba(103, 232, 249, 0.45);
+  color: #67e8f9;
+}
+
+/* Slightly stronger look for share buttons on article pages */
+body.lusi-unified-blog .lusi-content-root .lusi-share-btn {
+  background: rgba(103, 232, 249, 0.06);
+  border-color: rgba(103, 232, 249, 0.32);
+}
+
+body.lusi-unified-blog .lusi-share-btn:active {
+  transform: translateY(0.5px);
+}
+
+/* Unified title-area share button styling + consistent spacing */
+
+body.lusi-unified-blog .lusi-home-hero-copy .lusi-share,
+body.lusi-unified-blog .lusi-article-meta .lusi-share {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+/* Homepage hero share button — green, above the h1 */
+body.lusi-unified-blog .lusi-home-hero-copy .lusi-share-btn {
+  background: rgba(52, 211, 153, 0.13);
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #4ade80;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+}
+
+body.lusi-unified-blog .lusi-home-hero-copy .lusi-share-btn:hover {
+  background: rgba(52, 211, 153, 0.22);
+  border-color: #4ade80;
+  color: #86efac;
+}
+
+/* Article meta: share button directly under the h1 (green, same size) */
+body.lusi-unified-blog .lusi-article-meta .lusi-share-btn {
+  background: rgba(52, 211, 153, 0.13);
+  border-color: rgba(52, 211, 153, 0.4);
+  color: #4ade80;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+}
+
+body.lusi-unified-blog .lusi-article-meta .lusi-share-btn:hover {
+  background: rgba(52, 211, 153, 0.22);
+  border-color: #4ade80;
+  color: #86efac;
+}
+
+/* Tight, consistent gap after h1 before the share button */
+body.lusi-unified-blog .lusi-article-meta h1 {
+  margin-bottom: 4px;
+}
+
+body.lusi-unified-blog .lusi-share-status {
+  font-size: 0.78rem;
+  color: var(--blog-accent);
+  opacity: 0.9;
 }
 
 body.lusi-unified-blog .lusi-reading-frame {

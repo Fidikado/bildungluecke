@@ -586,6 +586,327 @@ body.lusi-unified-blog :where(img, video) {
   }
 }
 
+/* ===========================================================================
+   Interactive enhancements (progressive — see shared-theme.js)
+   All rules below are scoped to NEW class names only, so pages that don't use
+   the markup are unaffected. Anything that hides content is gated behind a
+   JS-set activation class (body.lusi-reveal-ready / .lusi-tabs.is-enhanced)
+   so content stays visible if the script never runs.
+   ======================================================================== */
+
+/* Reading progress bar */
+body.lusi-unified-blog .lusi-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 50;
+  pointer-events: none;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+body.lusi-unified-blog .lusi-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--blog-gold), var(--blog-accent));
+  box-shadow: 0 0 14px rgba(103, 232, 249, 0.5);
+}
+
+/* Back-to-top button */
+body.lusi-unified-blog .lusi-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 50;
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: var(--blog-heading) !important;
+  border: 1px solid rgba(125, 211, 252, 0.28) !important;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(167, 139, 250, 0.16)) !important;
+  box-shadow: var(--blog-shadow-soft);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  cursor: pointer;
+  transition: opacity 200ms ease, transform 200ms ease, background 160ms ease;
+}
+
+body.lusi-unified-blog .lusi-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+body.lusi-unified-blog .lusi-to-top:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.26), rgba(167, 139, 250, 0.24)) !important;
+}
+
+/* Scroll reveal — only active once JS adds lusi-reveal-ready to <body> */
+body.lusi-unified-blog.lusi-reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 620ms ease, transform 620ms ease;
+  will-change: opacity, transform;
+}
+
+body.lusi-unified-blog.lusi-reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Animated stat row */
+body.lusi-unified-blog .lusi-stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  margin: 28px 0;
+  overflow: hidden;
+  border: 1px solid var(--blog-border);
+  border-radius: var(--blog-radius);
+  background: var(--blog-border);
+  box-shadow: var(--blog-shadow-soft);
+  max-width: var(--blog-measure);
+}
+
+body.lusi-unified-blog .lusi-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 16px;
+  background: rgba(18, 21, 29, 0.78);
+}
+
+body.lusi-unified-blog .lusi-stat-value {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.9rem;
+  line-height: 1.05;
+  font-weight: 700;
+  background-image: linear-gradient(135deg, var(--blog-gold), var(--blog-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body.lusi-unified-blog .lusi-stat-label {
+  color: var(--blog-text-soft);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+/* Tabs */
+body.lusi-unified-blog .lusi-tabs {
+  margin: 28px 0;
+  max-width: var(--blog-measure);
+}
+
+body.lusi-unified-blog .lusi-tab-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+body.lusi-unified-blog .lusi-tab-btn {
+  padding: 9px 15px !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(148, 163, 184, 0.16) !important;
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--blog-text-soft) !important;
+  font-size: 0.86rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 160ms ease;
+}
+
+body.lusi-unified-blog .lusi-tab-btn:hover {
+  color: var(--blog-heading) !important;
+  border-color: rgba(125, 211, 252, 0.28) !important;
+}
+
+body.lusi-unified-blog .lusi-tab-btn.is-active {
+  color: var(--blog-heading) !important;
+  border-color: rgba(125, 211, 252, 0.34) !important;
+  background: rgba(56, 189, 248, 0.14);
+}
+
+body.lusi-unified-blog .lusi-tab-panel {
+  padding: 20px 22px;
+  border: 1px solid var(--blog-border);
+  border-radius: var(--blog-radius-sm);
+  background: linear-gradient(180deg, rgba(18, 21, 29, 0.7), rgba(18, 21, 29, 0.46));
+}
+
+body.lusi-unified-blog .lusi-tab-panel + .lusi-tab-panel {
+  margin-top: 12px; /* fallback: stacked panels when JS hasn't enhanced */
+}
+
+body.lusi-unified-blog .lusi-tab-panel p {
+  margin: 0;
+}
+
+/* Enhanced: show only the active panel */
+body.lusi-unified-blog .lusi-tabs.is-enhanced .lusi-tab-panel {
+  display: none;
+  margin-top: 0;
+}
+
+body.lusi-unified-blog .lusi-tabs.is-enhanced .lusi-tab-panel.is-active {
+  display: block;
+  animation: lusi-fade-in 320ms ease;
+}
+
+@keyframes lusi-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Accordion (native <details>) */
+body.lusi-unified-blog .lusi-accordion {
+  margin: 18px 0;
+  max-width: var(--blog-measure);
+  border: 1px solid var(--blog-border);
+  border-radius: var(--blog-radius-sm);
+  background: rgba(18, 21, 29, 0.6);
+  overflow: hidden;
+}
+
+body.lusi-unified-blog .lusi-accordion > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  color: var(--blog-heading);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.02rem;
+}
+
+body.lusi-unified-blog .lusi-accordion > summary::-webkit-details-marker {
+  display: none;
+}
+
+body.lusi-unified-blog .lusi-accordion > summary::after {
+  content: "+";
+  flex: none;
+  color: var(--blog-gold);
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 200ms ease;
+}
+
+body.lusi-unified-blog .lusi-accordion[open] > summary::after {
+  transform: rotate(45deg);
+}
+
+body.lusi-unified-blog .lusi-accordion-body {
+  padding: 0 18px 16px;
+}
+
+body.lusi-unified-blog .lusi-accordion-body p {
+  margin: 0;
+}
+
+/* Quiz */
+body.lusi-unified-blog .lusi-quiz {
+  margin: 32px 0;
+}
+
+body.lusi-unified-blog .lusi-quiz-item {
+  margin: 16px 0;
+  padding: 20px 22px;
+  max-width: var(--blog-measure);
+  border: 1px solid var(--blog-border);
+  border-radius: var(--blog-radius-sm);
+  background: linear-gradient(180deg, rgba(18, 21, 29, 0.72), rgba(18, 21, 29, 0.48));
+  box-shadow: var(--blog-shadow-soft);
+}
+
+body.lusi-unified-blog .lusi-quiz-q {
+  margin: 0 0 14px !important;
+  color: var(--blog-heading) !important;
+  font-weight: 600;
+}
+
+body.lusi-unified-blog .lusi-quiz-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 8px 0;
+  padding: 11px 15px !important;
+  border-radius: 14px !important;
+  border: 1px solid rgba(148, 163, 184, 0.18) !important;
+  background: rgba(15, 23, 42, 0.5);
+  color: var(--blog-text-soft) !important;
+  font-size: 0.92rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 150ms ease;
+}
+
+body.lusi-unified-blog .lusi-quiz-opt:hover:not(:disabled) {
+  color: var(--blog-heading) !important;
+  border-color: rgba(125, 211, 252, 0.3) !important;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+body.lusi-unified-blog .lusi-quiz-opt:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+body.lusi-unified-blog .lusi-quiz-opt.is-correct {
+  border-color: rgba(110, 231, 183, 0.55) !important;
+  background: rgba(16, 185, 129, 0.16);
+  color: #d1fae5 !important;
+}
+
+body.lusi-unified-blog .lusi-quiz-opt.is-wrong {
+  border-color: rgba(240, 161, 168, 0.55) !important;
+  background: rgba(244, 63, 94, 0.14);
+  color: #fecdd3 !important;
+}
+
+body.lusi-unified-blog .lusi-quiz-feedback {
+  margin: 12px 0 0 !important;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body.lusi-unified-blog .lusi-quiz-feedback.is-correct {
+  color: #d1fae5 !important;
+  background: rgba(16, 185, 129, 0.12);
+}
+
+body.lusi-unified-blog .lusi-quiz-feedback.is-wrong {
+  color: #fecdd3 !important;
+  background: rgba(244, 63, 94, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.lusi-unified-blog .lusi-progress span,
+  body.lusi-unified-blog .lusi-to-top,
+  body.lusi-unified-blog.lusi-reveal-ready [data-reveal],
+  body.lusi-unified-blog .lusi-tabs.is-enhanced .lusi-tab-panel.is-active,
+  body.lusi-unified-blog .lusi-accordion > summary::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  body.lusi-unified-blog.lusi-reveal-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 @media (max-width: 560px) {
   body.lusi-unified-blog .lusi-theme-brand {
     align-items: flex-start;

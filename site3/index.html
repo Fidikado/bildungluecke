@@ -9,7 +9,7 @@
     <title>⚠️ Betrugswarnung – SMS-Phishing bei Banken</title>
     <meta name="description" content="Eine kompakte Warnseite zu aktuellen Betrugsmaschen per SMS – inkl. einem echten Fall, bei dem 99.571 € innerhalb von 12 Minuten verloren wurden." />
     <link rel="stylesheet" href="../shared-theme.css" />
-    <script defer src="../shared-theme.js?v=stable-20260501-3"></script>
+    <script defer src="../shared-theme.js?v=stable-20260628-2"></script>
   </head>
   <body class="lusi-unified-blog bg-[#060608] antialiased">
     <div class="lusi-theme-shell">
@@ -53,12 +53,22 @@
         </div>
 
         <article class="lusi-reading-frame lusi-longform-copy">
-          <p>Wie Betrüger den SMS-Verlauf Ihrer Bank infiltrieren und warum selbst vorsichtige Menschen darauf hereinfallen können.</p>
-          <ul>
-            <li><strong>99.571 €</strong> – Ersparnisse von 40 Jahren</li>
-            <li><strong>12 Minuten</strong> – Dauer des gesamten Betrugs</li>
-            <li><strong>40 Jahre</strong> – Lebensarbeit vernichtet</li>
-          </ul>
+          <p>„Mir wäre das nie passiert" – das denken die meisten. Auch Peter dachte es, ein vorsichtiger Mensch. Dann verlor er in zwölf Minuten 99.571 € – die Ersparnisse aus 40 Jahren. Diese Masche funktioniert nicht trotz, sondern wegen unserer Vorsicht: Sie nutzt jeden Reflex, der uns eigentlich schützen soll.</p>
+
+          <div class="lusi-stat-row" aria-label="Der Fall in Zahlen">
+            <div class="lusi-stat">
+              <span class="lusi-stat-value" data-count-to="99571" data-count-group="true" data-count-suffix=" €">99.571 €</span>
+              <span class="lusi-stat-label">verlorene Ersparnisse</span>
+            </div>
+            <div class="lusi-stat">
+              <span class="lusi-stat-value" data-count-to="12" data-count-suffix=" Min.">12 Min.</span>
+              <span class="lusi-stat-label">Dauer des gesamten Betrugs</span>
+            </div>
+            <div class="lusi-stat">
+              <span class="lusi-stat-value" data-count-to="40" data-count-suffix=" Jahre">40 Jahre</span>
+              <span class="lusi-stat-label">Lebensarbeit vernichtet</span>
+            </div>
+          </div>
 
           <h2 class="lusi-section-heading">Der Fall: Eine einzige SMS reichte aus</h2>
           <p>Peter, ein Berufsmusiker und Verwaltungsangestellter, hatte über 40 Jahre hinweg sein gesamtes Erspartes für die Altersvorsorge aufgebaut – eine Lebensversicherung, die nach 40 Jahren Laufzeit auszahlte. Das Geld wurde auf sein neu eröffnetes Konto bei Trade Republic überwiesen. Nur kurze Zeit später kam die verhängnisvolle SMS.</p>
@@ -95,25 +105,38 @@
           </div>
 
           <h2 class="lusi-section-heading">So schützen Sie sich</h2>
-          <p><strong>Das sollten Sie tun:</strong></p>
-          <ul>
-            <li>Bei verdächtigen SMS: Rufen Sie die offizielle Nummer Ihrer Bank an – nicht die aus der SMS.</li>
-            <li>Banken werden Sie niemals auffordern, Geld auf ein Sicherheitskonto zu überweisen.</li>
-            <li>Nehmen Sie sich Zeit. Legen Sie auf und rufen Sie die Bank direkt über die offizielle App an.</li>
-            <li>Sprechen Sie mit Familie oder Freunden, bevor Sie größere Überweisungen tätigen.</li>
-            <li>Aktivieren Sie Zwei-Faktor-Authentifizierung für alle Banking-Apps.</li>
-            <li>Melden Sie verdächtige Nachrichten an Ihre Bank und an die Polizei.</li>
-          </ul>
-          <p><strong>Das sollten Sie NICHT tun:</strong></p>
-          <ul>
-            <li>Niemandem auf der Telefonleitung folgen, wenn Sie unaufgefordert angerufen werden.</li>
-            <li>Keine Überweisungen aufgrund von SMS oder Anrufen durchführen.</li>
-            <li>Keine Zugangsdaten, PINs oder TANs am Telefon preisgeben.</li>
-            <li>Keine App installieren, die Ihnen am Telefon empfohlen wird.</li>
-            <li>Niemals Geld auf ein Treuhand- oder Sicherheitskonto überweisen.</li>
-            <li>Sich nicht unter Zeitdruck setzen lassen – legen Sie einfach auf.</li>
-          </ul>
-          <p><strong>Wenn Sie bereits betroffen sind:</strong> Bank sofort anrufen (über die offizielle Nummer) · Polizei-Anzeige erstatten · Bundesverbraucherzentrale kontaktieren · Weißer Ring e.V. für Opferhilfe · Aktuellen Vorfall dokumentieren (Screenshots, Chatverlauf, Uhrzeit) – nichts löschen.</p>
+          <div class="lusi-tabs" data-tabs aria-label="Schutzmaßnahmen">
+            <div class="lusi-tab-list" role="tablist" aria-label="Schutzmaßnahmen">
+              <button class="lusi-tab-btn" data-tab="0">Das sollten Sie tun</button>
+              <button class="lusi-tab-btn" data-tab="1">Das sollten Sie NICHT tun</button>
+              <button class="lusi-tab-btn" data-tab="2">Schon betroffen?</button>
+            </div>
+            <div class="lusi-tab-panels">
+              <div class="lusi-tab-panel" role="tabpanel" data-panel="0">
+                <ul>
+                  <li>Bei verdächtigen SMS: Rufen Sie die offizielle Nummer Ihrer Bank an – nicht die aus der SMS.</li>
+                  <li>Banken werden Sie niemals auffordern, Geld auf ein Sicherheitskonto zu überweisen.</li>
+                  <li>Nehmen Sie sich Zeit. Legen Sie auf und rufen Sie die Bank direkt über die offizielle App an.</li>
+                  <li>Sprechen Sie mit Familie oder Freunden, bevor Sie größere Überweisungen tätigen.</li>
+                  <li>Aktivieren Sie Zwei-Faktor-Authentifizierung für alle Banking-Apps.</li>
+                  <li>Melden Sie verdächtige Nachrichten an Ihre Bank und an die Polizei.</li>
+                </ul>
+              </div>
+              <div class="lusi-tab-panel" role="tabpanel" data-panel="1">
+                <ul>
+                  <li>Niemandem auf der Telefonleitung folgen, wenn Sie unaufgefordert angerufen werden.</li>
+                  <li>Keine Überweisungen aufgrund von SMS oder Anrufen durchführen.</li>
+                  <li>Keine Zugangsdaten, PINs oder TANs am Telefon preisgeben.</li>
+                  <li>Keine App installieren, die Ihnen am Telefon empfohlen wird.</li>
+                  <li>Niemals Geld auf ein Treuhand- oder Sicherheitskonto überweisen.</li>
+                  <li>Sich nicht unter Zeitdruck setzen lassen – legen Sie einfach auf.</li>
+                </ul>
+              </div>
+              <div class="lusi-tab-panel" role="tabpanel" data-panel="2">
+                <p>Bank sofort anrufen (über die offizielle Nummer) · Polizei-Anzeige erstatten · Bundesverbraucherzentrale kontaktieren · Weißer Ring e.V. für Opferhilfe · Aktuellen Vorfall dokumentieren (Screenshots, Chatverlauf, Uhrzeit) – nichts löschen.</p>
+              </div>
+            </div>
+          </div>
 
           <h2 class="lusi-section-heading">Was Banken tun müssen</h2>
           <p>Banken haben technische Möglichkeiten, um Betrug zu erkennen – aber sie nutzen sie nicht immer zum Schutz der Kunden.</p>
@@ -124,13 +147,59 @@
           </ol>
 
           <h2 class="lusi-section-heading">Wichtige Fragen &amp; Antworten</h2>
-          <p><strong>Kann man gefälschte SMS-Nachrichten von echten unterscheiden?</strong><br>In diesem Fall: Nein. Die Betrüger-Nachricht erschien im exakt selben SMS-Verlauf wie die bisherigen echten Banknachrichten. Es gab keine separate Nummer, keine andere Darstellung – nichts.</p>
-          <p><strong>Banken fordern mich doch nie auf zu überweisen – oder?</strong><br>Echte Banken werden Sie niemals auffordern, Geld auf ein Treuhandsammelkonto oder Sicherheitskonto zu überweisen. Wenn Sie am Telefon dazu aufgefordert werden, handelt es sich um Betrug. Legen Sie sofort auf.</p>
-          <p><strong>Warum überwies Peter das Geld freiwillig?</strong><br>Die Betrüger bauten systematisch Vertrauen auf: echter Chatverlauf, Bestätigungs-SMS über denselben Kanal, eine „Sicherheitsabteilung", ein real existierender Begriff („Treuhandsammelkonto") und permanenter Zeitdruck. All dies zusammen erzeugte eine Situation, in der die Überweisung logisch und sicher erschien.</p>
-          <p><strong>Bekommt Peter sein Geld zurück?</strong><br>Teilweise hoffentlich. Ein Teil des Geldes konnte von der österreichischen Bank zurückgebucht werden, auf die das Geld überwiesen wurde. Die Rechtslage ist schwierig: Bisherige Rechtsprechung sagt oft „selber Schuld", aber in diesem Fall gibt es besondere Umstände, die eine Haftung der Bank begründen könnten.</p>
-          <p><strong>Ist die Bank haftbar?</strong><br>Die bisherige Rechtsprechung spricht meist gegen eine Haftung der Bank. In diesem Fall gibt es aber besondere Umstände: Trade Republic hat trotz bekannter Fälle erst spät konkret gewarnt, die Geldwäsche-Erkennung hat die Tranchen erkannt, den Kunden aber nicht gewarnt, und der SMS-Kanal war nicht ausreichend gesichert. Der Fall ist rechtlich noch nicht abgeschlossen.</p>
-          <p><strong>Kann mir das auch passieren?</strong><br>Ja. Sogar der Anwalt, der den Fall berät, und ein Kollege – beide Trade Republic Kunden – konnten die gefälschte Nachricht im Chatverlauf nicht von der echten unterscheiden. Die Masche ist so ausgefeilt, dass sie selbst fachkundige Menschen täuscht.</p>
-          <p><strong>Wie funktioniert die SMS-Fälschung technisch?</strong><br>Betrüger nutzen sogenanntes SMS-Spoofing, um die Absenderkennung zu fälschen. Dabei wird die Nachricht so verschickt, dass auf dem Empfängerhandy statt der tatsächlichen Nummer der Name der Bank erscheint. Weder iPhone noch Android zeigen die tatsächliche Absendernummer an.</p>
+          <details class="lusi-accordion">
+            <summary>Kann man gefälschte SMS-Nachrichten von echten unterscheiden?</summary>
+            <div class="lusi-accordion-body"><p>In diesem Fall: Nein. Die Betrüger-Nachricht erschien im exakt selben SMS-Verlauf wie die bisherigen echten Banknachrichten. Es gab keine separate Nummer, keine andere Darstellung – nichts.</p></div>
+          </details>
+          <details class="lusi-accordion">
+            <summary>Banken fordern mich doch nie auf zu überweisen – oder?</summary>
+            <div class="lusi-accordion-body"><p>Echte Banken werden Sie niemals auffordern, Geld auf ein Treuhandsammelkonto oder Sicherheitskonto zu überweisen. Wenn Sie am Telefon dazu aufgefordert werden, handelt es sich um Betrug. Legen Sie sofort auf.</p></div>
+          </details>
+          <details class="lusi-accordion">
+            <summary>Warum überwies Peter das Geld freiwillig?</summary>
+            <div class="lusi-accordion-body"><p>Die Betrüger bauten systematisch Vertrauen auf: echter Chatverlauf, Bestätigungs-SMS über denselben Kanal, eine „Sicherheitsabteilung", ein real existierender Begriff („Treuhandsammelkonto") und permanenter Zeitdruck. All dies zusammen erzeugte eine Situation, in der die Überweisung logisch und sicher erschien.</p></div>
+          </details>
+          <details class="lusi-accordion">
+            <summary>Bekommt Peter sein Geld zurück?</summary>
+            <div class="lusi-accordion-body"><p>Teilweise hoffentlich. Ein Teil des Geldes konnte von der österreichischen Bank zurückgebucht werden, auf die das Geld überwiesen wurde. Die Rechtslage ist schwierig: Bisherige Rechtsprechung sagt oft „selber Schuld", aber in diesem Fall gibt es besondere Umstände, die eine Haftung der Bank begründen könnten.</p></div>
+          </details>
+          <details class="lusi-accordion">
+            <summary>Ist die Bank haftbar?</summary>
+            <div class="lusi-accordion-body"><p>Die bisherige Rechtsprechung spricht meist gegen eine Haftung der Bank. In diesem Fall gibt es aber besondere Umstände: Trade Republic hat trotz bekannter Fälle erst spät konkret gewarnt, die Geldwäsche-Erkennung hat die Tranchen erkannt, den Kunden aber nicht gewarnt, und der SMS-Kanal war nicht ausreichend gesichert. Der Fall ist rechtlich noch nicht abgeschlossen.</p></div>
+          </details>
+          <details class="lusi-accordion">
+            <summary>Kann mir das auch passieren?</summary>
+            <div class="lusi-accordion-body"><p>Ja. Sogar der Anwalt, der den Fall berät, und ein Kollege – beide Trade Republic Kunden – konnten die gefälschte Nachricht im Chatverlauf nicht von der echten unterscheiden. Die Masche ist so ausgefeilt, dass sie selbst fachkundige Menschen täuscht.</p></div>
+          </details>
+          <details class="lusi-accordion">
+            <summary>Wie funktioniert die SMS-Fälschung technisch?</summary>
+            <div class="lusi-accordion-body"><p>Betrüger nutzen sogenanntes SMS-Spoofing, um die Absenderkennung zu fälschen. Dabei wird die Nachricht so verschickt, dass auf dem Empfängerhandy statt der tatsächlichen Nummer der Name der Bank erscheint. Weder iPhone noch Android zeigen die tatsächliche Absendernummer an.</p></div>
+          </details>
+
+          <section class="lusi-quiz" data-quiz aria-label="Selbsttest">
+            <h2 class="lusi-section-heading">Teste dein Wissen</h2>
+            <div class="lusi-quiz-item" data-answer="2">
+              <p class="lusi-quiz-q">Woran erkennt man die gefälschte Bank-SMS in diesem Fall?</p>
+              <button class="lusi-quiz-opt">An der abweichenden Absendernummer</button>
+              <button class="lusi-quiz-opt">Am auffälligen Schreibstil der Nachricht</button>
+              <button class="lusi-quiz-opt">Gar nicht – sie erscheint im selben Chatverlauf, ohne erkennbaren Unterschied</button>
+              <p class="lusi-quiz-feedback" hidden>Richtig: Durch SMS-Spoofing erscheint die Nachricht im echten Bank-Thread – selbst Fachleute erkannten den Unterschied nicht.</p>
+            </div>
+            <div class="lusi-quiz-item" data-answer="1">
+              <p class="lusi-quiz-q">Wozu wird dich eine echte Bank niemals auffordern?</p>
+              <button class="lusi-quiz-opt">Die Banking-App zu aktualisieren</button>
+              <button class="lusi-quiz-opt">Geld auf ein „Treuhand-" oder „Sicherheitskonto" zu überweisen</button>
+              <button class="lusi-quiz-opt">Eine Filiale aufzusuchen</button>
+              <p class="lusi-quiz-feedback" hidden>Richtig: Diese Aufforderung ist immer Betrug – sofort auflegen.</p>
+            </div>
+            <div class="lusi-quiz-item" data-answer="0">
+              <p class="lusi-quiz-q">Was ist im Verdachtsmoment der richtige erste Schritt?</p>
+              <button class="lusi-quiz-opt">Auflegen und die Bank über die offizielle Nummer/App selbst zurückrufen</button>
+              <button class="lusi-quiz-opt">Der Hotline-Nummer aus der SMS folgen</button>
+              <button class="lusi-quiz-opt">Schnell handeln, bevor das Konto gesperrt wird</button>
+              <p class="lusi-quiz-feedback" hidden>Richtig: Eigeninitiative über den offiziellen Kanal durchbricht den Zeitdruck der Täter.</p>
+            </div>
+          </section>
 
           <div class="lusi-home-hero-panel" style="margin-top: 2rem;">
             <strong>Teilen Sie diese Warnung</strong>

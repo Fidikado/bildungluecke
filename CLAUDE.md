@@ -8,7 +8,7 @@ This is the file mirror for the deployed site **blog.bildungsluecke.xyz** ("Bild
 
 ## Everything is hand-authored static HTML
 
-`index.html` (site root) and `site1/`–`site6/` were originally raw downloaded snapshots of a compiled React/Vite bundle (minified, unreadable, unmaintainable — the original React source project was never committed anywhere and is considered lost). They have since been **fully rewritten as plain static HTML**, using the shared theme CSS classes, with the article text recovered verbatim from the old bundles. There is no React, no build step, and no minified JS left anywhere in the repo. Every page now follows the same hand-authored pattern.
+`index.html` (site root) and `site1/`–`site8/` were originally raw downloaded snapshots of a compiled React/Vite bundle (minified, unreadable, unmaintainable — the original React source project was never committed anywhere and is considered lost). They have since been **fully rewritten as plain static HTML**, using the shared theme CSS classes, with the article text recovered verbatim from the old bundles. There is no React, no build step, and no minified JS left anywhere in the repo. Every page now follows the same hand-authored pattern.
 
 ## Adding a new topic page
 
@@ -24,7 +24,7 @@ Follow the existing `siteN/index.html` pattern:
    - `lusi-article-meta`, `lusi-article-meta-note`, `lusi-article-backlink` — title/meta bar above the article
    - `lusi-content-root`, `lusi-reading-frame`, `lusi-longform-copy`, `lusi-section-heading` — article body and `<h2>` section headers
    - `lusi-pullquote` — highlighted quote block
-   - `lusi-home-hero-panel` — boxed callout (used here for the closing CTA box)
+   - `lusi-home-hero-panel` — boxed callout in the hero section (on the homepage used for the "Neu auf Bildungslücke" featured article highlight)
    - `lusi-cta-link` — pill-style call-to-action link (auto-appends a `→`)
    - `lusi-share`, `lusi-share-btn` (with `data-share`) — "Teilen" / share button
    - `lusi-theme-footer` — page footer
@@ -32,6 +32,7 @@ Follow the existing `siteN/index.html` pattern:
 6. Headings (`h1`–`h6`) automatically render in Playfair Display via the shared theme; body text automatically uses Inter. Don't override `font-family` manually.
 7. Add a matching `lusi-theme-nav-link` entry (linking to the new page) to the nav block on **every** existing page — `index.html` and all `siteN/index.html` files all repeat the same nav markup independently (there's no shared template/include), so a new page must be added to each one by hand.
 8. Add a corresponding `lusi-article-card` to the `lusi-article-grid` on the homepage (`index.html`) so the new page is discoverable from the start page.
+9. If this is the newest article, also update the "Neu auf Bildungslücke" highlight inside the `.lusi-home-hero-panel` on `index.html` (short description + link to the new `/siteN/`).
 
 ## Interactive article enhancements (`shared-theme.js` + `shared-theme.css`)
 
